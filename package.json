@@ -26,7 +26,10 @@
     "url": "https://github.com/matiassingers/whatsapp-log-parser/issues"
   },
   "homepage": "https://github.com/matiassingers/whatsapp-log-parser",
-  "dependencies": {},
+  "dependencies": {
+    "readline": "0.0.4",
+    "moment": "~2.8.3"
+  },
   "devDependencies": {
     "mocha": "^2.0.0"
   }
