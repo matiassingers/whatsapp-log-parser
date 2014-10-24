@@ -27,6 +27,14 @@ if (argv.indexOf('--version') !== -1) {
 }
 
 
-whatsappLogParser(argv[0], function(){
+whatsappLogParser(argv[0], function(error, messages){
+  for(var i in messages){
+    var message = messages[i];
 
+    if(message.sender) {
+      console.log(message.sender + ': ' + message.message);
+    } else {
+      console.log(message.message);
+    }
+  }
 });
