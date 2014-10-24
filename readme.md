@@ -27,8 +27,13 @@ $ npm install --global whatsapp-log-parser
 ```sh
 $ whatsapp-log-parser --help
 
+  parse WhatsApp log files
+
   Example
-    whatsapp-log-parser
+    whatsapp-log-parser log.txt
+
+   => Tony Stark was added
+      Tony Stark: What just happened? Please tell me nobody kissed me.
     
 ```
 

@@ -11,12 +11,15 @@ function help() {
       '  ' + pkg.description,
     '',
     '  Example',
-    '    whatsapp-log-parser ',
-    ''
+    '    whatsapp-log-parser log.txt',
+    '',
+    '   => Tony Stark was added',
+    '      Tony Stark: What just happened? Please tell me nobody kissed me.',
+    '',
   ].join('\n'));
 }
 
-if (argv.indexOf('--help') !== -1) {
+if (argv.indexOf('--help') !== -1 || !argv[0]) {
   help();
   return;
 }
