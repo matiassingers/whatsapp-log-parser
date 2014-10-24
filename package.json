@@ -32,7 +32,6 @@
   },
   "homepage": "https://github.com/matiassingers/whatsapp-log-parser",
   "dependencies": {
-    "readline": "0.0.4",
     "moment": "~2.8.3"
   },
   "devDependencies": {
