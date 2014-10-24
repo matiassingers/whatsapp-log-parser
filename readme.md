@@ -13,7 +13,16 @@ $ npm install --save whatsapp-log-parser
 ```js
 var whatsappLogParser = require('whatsapp-log-parser');
 
-whatsappLogParser()
+whatsappLogParser('path/to/log.txt', function(messages){
+  console.log(messages);
+  
+  => [ { date: '2014-02-27T05:16:12+08:00',
+         message: 'Steve Rogers changed the subject to “The Avengers”',
+         announcement: true },
+       { date: '2014-02-27T05:16:18+08:00',
+         message: 'Tony Stark was added',
+         announcement: true } ]
+});
 
 ```
 
