@@ -28,6 +28,10 @@ if (argv.indexOf('--version') !== -1) {
 
 
 whatsappLogParser(argv[0], function(error, messages){
+  if(error){
+    return console.log(error.message);
+  }
+
   for(var i in messages){
     var message = messages[i];
 

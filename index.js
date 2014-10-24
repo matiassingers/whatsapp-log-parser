@@ -13,6 +13,13 @@ function readFileContent(filename, callback){
   outstream.readable = true;
   outstream.writable = true;
 
+  instream.on('error', function (error){
+    if(error.code === 'ENOENT'){
+      error.message = 'File doesn\'t exist, please try again with a different file/path.';
+    }
+    return callback(error);
+  });
+
   var rl = readline.createInterface({
     input: instream,
     output: outstream,
