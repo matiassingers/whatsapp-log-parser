@@ -46,6 +46,8 @@ $ whatsapp-log-parser --help
     
 ```
 
+![Tony Stark and Steve Rogers](avengers.gif)
+
 
 ## License
 
