@@ -1,6 +1,6 @@
 {
   "name": "whatsapp-log-parser",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "parse WhatsApp log files",
   "main": "index.js",
   "keywords": [
