@@ -16,7 +16,12 @@ describe('whatsappLogParser full parse', function(){
   });
 
   it('should have a valid date', function() {
-    assert.equal(actual[0].date, '2014-02-27T05:16:12+08:00');
+    // remove timezone(+08:00) from datetimestamp
+    var date = actual[0].date.split('');
+    date.splice(19, 6);
+    date = date.join('');
+
+    assert.equal(date, '2014-02-27T05:16:12');
   });
 
   it('should have correct boolean for announcements', function() {
