@@ -1,6 +1,8 @@
 # whatsapp-log-parser [![Build Status](http://img.shields.io/travis/matiassingers/whatsapp-log-parser.svg?style=flat-square)](https://travis-ci.org/matiassingers/whatsapp-log-parser) [![Dependency Status](http://img.shields.io/gemnasium/matiassingers/whatsapp-log-parser.svg?style=flat-square)](https://gemnasium.com/matiassingers/whatsapp-log-parser)
 > parse WhatsApp log files
 
+Easily go from WhatsApp `.txt` log files to consumable JavaScript objects.
+
 ## Install
 
 ```sh
