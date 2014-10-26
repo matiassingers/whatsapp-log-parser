@@ -21,7 +21,10 @@ whatsappLogParser('path/to/log.txt', function(messages){
          announcement: true },
        { date: '2014-02-27T05:16:18+08:00',
          message: 'Tony Stark was added',
-         announcement: true } ]
+         announcement: true },
+       { date: '2014-02-27T06:28:37+08:00',
+         sender: 'Tony Stark',
+         message: 'What just happened? Please tell me nobody kissed me.' } ]
 });
 
 ```
