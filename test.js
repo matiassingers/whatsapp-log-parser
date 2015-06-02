@@ -6,8 +6,13 @@ var whatsappLogParser = require('./');
 
 describe('whatsappLogParser full parse', function(){
   var actual;
-  whatsappLogParser('tests/expected.txt', function(err, results){
-    actual = results;
+
+  beforeEach(function(done) {
+    whatsappLogParser('tests/expected.txt', function(err, results){
+      actual = results;
+
+      done();
+    });
   });
 
   it('should have the correct amount of messages', function() {
