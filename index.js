@@ -68,11 +68,20 @@ function messageDetails(parts){
   return details;
 }
 function formatDate(timestamp){
-  if(timestamp.length !== 17){
-    throw new Error('Timestamp is of the wrong length:', timestamp);
+  // https://github.com/nmoya/whatsapp-parser/blob/master/wp_parser/parsers/whatsapp.py
+  // A line can be either:
+  //   09/12/2012 17:03:48: Sender Name: Message
+  //   3/24/14, 1:59:59 PM: Sender Name: Message
+  //   24/3/14, 13:59:59: Sender Name: Message
+
+  if (parseInt(timestamp.slice(-1))) {
+    // moment supports both 2-digit and 4-digit years with this format
+    return moment(timestamp, "DD/MM/YYYY HH:mm:ss").format();
+  } else {
+    // the third option with a single-digit hour
+    return moment(timestamp, "DD/MM/YY hh:mm:ss a").format();
   }
 
-  return moment(timestamp, 'DD/MM/YY HH:mm:ss').format();
 }
 
 module.exports = function(filename){
