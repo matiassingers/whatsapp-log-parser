@@ -41,17 +41,26 @@ function formatLine(line) {
     return;
   }
 
-  var lineParts = line.split(': ');
+  var dashSplit = line.split(" - ");
+  if (dashSplit.length > 1) {
+    var datePart = dashSplit[0];
+    var lineParts = dashSplit[1].split(": ");
+    lineParts.unshift(datePart);
+  } else {
+    var lineParts = line.split(": ");
+  }
+
   return messageDetails(lineParts);
 }
-function messageDetails(parts){
+
+function messageDetails(parts) {
   var date = formatDate(parts[0]);
 
   var details = {
     date: date
   };
 
-  if(parts[2]){
+  if(parts[2]) {
     details.sender = parts[1];
 
     // remove timestamp and sender info
@@ -68,11 +77,23 @@ function messageDetails(parts){
   return details;
 }
 function formatDate(timestamp){
-  if(timestamp.length !== 17){
-    throw new Error('Timestamp is of the wrong length:', timestamp);
+  // https://github.com/nmoya/whatsapp-parser/blob/master/wp_parser/parsers/whatsapp.py
+  // A line can be either:
+  //   09/12/2012 17:03:48: Sender Name: Message
+  //   3/24/14, 1:59:59 PM: Sender Name: Message
+  //   24/3/14, 13:59:59: Sender Name: Message
+
+  // and my log files look like this:
+  //   30/08/2017, 14:13: Sender Name: Message
+
+  if (parseInt(timestamp.slice(-1))) {
+    // moment is great, it solves all the issues with dates like this already
+    return moment(timestamp, "DD/MM/YYYY HH:mm:ss").format();
+  } else {
+    // the third option with a single-digit hour
+    return moment(timestamp, "DD/MM/YY hh:mm:ss a").format();
   }
 
-  return moment(timestamp, 'DD/MM/YY HH:mm:ss').format();
 }
 
 module.exports = function(filename){

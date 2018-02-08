@@ -1,6 +1,6 @@
 {
   "name": "whatsapp-log-parser",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "parse WhatsApp log files",
   "main": "index.js",
   "keywords": [
@@ -32,7 +32,7 @@
   },
   "homepage": "https://github.com/matiassingers/whatsapp-log-parser",
   "dependencies": {
-    "moment": "2.10.3"
+    "moment": "2.20.1"
   },
   "devDependencies": {
     "mocha": "2.2.5"
