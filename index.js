@@ -44,14 +44,15 @@ function formatLine(line) {
   var lineParts = line.split(': ');
   return messageDetails(lineParts);
 }
-function messageDetails(parts){
+
+function messageDetails(parts) {
   var date = formatDate(parts[0]);
 
   var details = {
     date: date
   };
 
-  if(parts[2]){
+  if(parts[2]) {
     details.sender = parts[1];
 
     // remove timestamp and sender info
@@ -74,8 +75,11 @@ function formatDate(timestamp){
   //   3/24/14, 1:59:59 PM: Sender Name: Message
   //   24/3/14, 13:59:59: Sender Name: Message
 
+  // and my log files look like this:
+  //   30/08/2017, 14:13: Sender Name: Message
+
   if (parseInt(timestamp.slice(-1))) {
-    // moment supports both 2-digit and 4-digit years with this format
+    // moment is great, it solves all the issues with dates like this already
     return moment(timestamp, "DD/MM/YYYY HH:mm:ss").format();
   } else {
     // the third option with a single-digit hour
