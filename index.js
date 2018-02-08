@@ -41,7 +41,10 @@ function formatLine(line) {
     return;
   }
 
-  var lineParts = line.split(': ');
+  var dashSplit = line.split(" - ");
+  var datePart = dashSplit[0];
+  var lineParts = dashSplit[1].split(": ");
+  lineParts.unshift(datePart);
   return messageDetails(lineParts);
 }
 
