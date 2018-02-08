@@ -42,9 +42,14 @@ function formatLine(line) {
   }
 
   var dashSplit = line.split(" - ");
-  var datePart = dashSplit[0];
-  var lineParts = dashSplit[1].split(": ");
-  lineParts.unshift(datePart);
+  if (dashSplit.length > 1) {
+    var datePart = dashSplit[0];
+    var lineParts = dashSplit[1].split(": ");
+    lineParts.unshift(datePart);
+  } else {
+    var lineParts = line.split(": ");
+  }
+
   return messageDetails(lineParts);
 }
 
